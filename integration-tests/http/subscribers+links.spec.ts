@@ -170,24 +170,6 @@ medusaIntegrationTestRunnerManual({
           it: { name: "Test shipping option" }
         })
       })
-
-      describe("GET /store/shipping-options", () => {
-        it("should get translated shipping options for a cart successfully", async () => {
-          const shippingOptions = (await api.get(
-            `/store/shipping-options/tolgee?cart_id=${cart.id}`,
-            storeHeaders
-          )).data.shipping_options
-
-          expect(shippingOptions).toHaveLength(1)
-          expect(shippingOptions[0]).toHaveProperty("translations")
-          expect(shippingOptions[0].translations).toEqual(
-            expect.objectContaining({
-              id: shippingOption.id,
-              it: { name: "Test shipping option" }
-            })
-          )
-        })
-      })
     })
 
     describe("Product + variant + options + option values", () => {

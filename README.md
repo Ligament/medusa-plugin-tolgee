@@ -192,24 +192,6 @@ sdk.client.fetch<{ products: StoreProductWithTranslations[]; count: number }>(
 })
 ```
 
-Note: the store API endpoint for shipping options ignores query fields. For now, you can use the custom endpoint below, which accepts the country code as a query parameter. 
-```javascript
-sdk.client.fetch<HttpTypes.StoreShippingOptionListResponse>(
-  `/store/shipping-options/tolgee`,
-  {
-    method: "GET",
-    query: { cart_id: cartId, country_code: countryCode },
-    headers,
-    next,
-    cache: "force-cache",
-  }
-)
-.then(({ shipping_options }) => shipping_options)
-.catch(() => {
-  return null
-})
-```
-
 **Tolgee hook**: You can also directly use the `useTranslate` hook provided by Tolgee. [See more info](https://docs.tolgee.io/js-sdk/integrations/react/overview)
 
 ### SSG

@@ -75,11 +75,3 @@ interface Language {
     label: string;
     tag: string;
 }
-
-// TODO: the method exists but not on the upstream interface
-// remove when added
-declare module "@medusajs/framework/types" {
-    interface IProductModuleService {
-        retrieveProductOptionValue(id: string, config?: FindConfig<ProductOptionValueDTO>, sharedContext?: Context): Promise<ProductOptionValueDTO>;
-    }
-}

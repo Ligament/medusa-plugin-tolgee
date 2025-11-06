@@ -5,7 +5,7 @@ import { MedusaError, Modules } from "@medusajs/utils";
 import axios from "axios";
 import { setupCache } from 'axios-cache-interceptor';
 import { TolgeeModuleConfig } from "../service";
-import { asValue } from "awilix";
+import { asValue } from "@medusajs/framework/awilix";
 import { setupBatchingAdapter } from "./utils/batching-adapter";
 
 export default async function tolgeeClientLoader({
