@@ -1,14 +1,14 @@
 import { IEventBusModuleService, ProductCategoryDTO } from "@medusajs/framework/types"
 import { MedusaContainer } from "@medusajs/medusa"
-import { ContainerRegistrationKeys, Modules } from "@medusajs/utils"
-import { medusaIntegrationTestRunnerManual } from "../utils/medusa-test-runner"
+import { Modules } from "@medusajs/utils"
 import { getPublishableKey, getAdminToken } from "../utils/tokens"
-import { TestEventUtils } from "@medusajs/test-utils"
+import { medusaIntegrationTestRunner, TestEventUtils } from "@medusajs/test-utils"
 import { TOLGEE_MODULE } from "medusa-plugin-tolgee/.medusa/server/src/modules/tolgee"
 
 jest.setTimeout(60000)
 
-medusaIntegrationTestRunnerManual({
+medusaIntegrationTestRunner({
+  disableAutoTeardown: true,
   testSuite: ({ getContainer, api }) => {
     let appContainer: MedusaContainer, eventBus: IEventBusModuleService
     const storeHeaders = { headers: {} }

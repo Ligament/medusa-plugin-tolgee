@@ -39,16 +39,14 @@ jobs:
 
       - name: Create env file
         run: |
-          echo 'DB_USERNAME=postgres' >> ./integration-tests/.env.test
-          echo 'DB_PASSWORD=postgres' >> ./integration-tests/.env.test
-          echo 'TOLGEE_API_URL=https://app.tolgee.io' >> ./integration-tests/.env.test
-          echo 'TOLGEE_API_KEY=${{ secrets.TOLGEE_API_KEY }}' >> ./integration-tests/.env.test
-          echo 'TOLGEE_PROJECT_ID=${{ secrets.TOLGEE_PROJECT_ID }}' >> ./integration-tests/.env.test
+          echo 'DB_USERNAME=postgres' >> ./.env.test
+          echo 'DB_PASSWORD=postgres' >> ./.env.test
+          echo 'TOLGEE_API_URL=https://app.tolgee.io' >> ./.env.test
+          echo 'TOLGEE_API_KEY=${{ secrets.TOLGEE_API_KEY }}' >> ./.env.test
+          echo 'TOLGEE_PROJECT_ID=${{ secrets.TOLGEE_PROJECT_ID }}' >> ./.env.test
 
       - name: Build
-        run: |
-          cd package
-          pnpm run --filter medusa-plugin-tolgee build
+        run: pnpm build
 
       - name: Run tests
-        run: pnpm run --filter integration-tests test:integration:http
+        run: pnpm test:integration:http

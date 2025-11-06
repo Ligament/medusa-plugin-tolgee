@@ -14,10 +14,9 @@ module.exports = defineConfig({
       cookieSecret: process.env.COOKIE_SECRET || "supersecret",
     }
   },
-  admin: { disable: true },
   plugins: [
     {
-      resolve: "medusa-plugin-tolgee",
+      resolve: `${process.cwd()}/..`,
       options: {
         baseURL: process.env.TOLGEE_API_URL!,
         apiKey: process.env.TOLGEE_API_KEY!,

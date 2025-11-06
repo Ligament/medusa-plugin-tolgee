@@ -1,16 +1,16 @@
 import { ShippingOptionDTO, IEventBusModuleService, CartDTO, ProductDTO, ProductCategoryDTO, ProductCollectionDTO, ProductTypeDTO, ProductTagDTO } from "@medusajs/framework/types"
 import { MedusaContainer } from "@medusajs/medusa"
-import { TestEventUtils } from "@medusajs/test-utils"
+import { medusaIntegrationTestRunner, TestEventUtils } from "@medusajs/test-utils"
 import { ContainerRegistrationKeys, FulfillmentEvents, Modules } from "@medusajs/utils"
 import { TOLGEE_MODULE } from "medusa-plugin-tolgee"
-import { medusaIntegrationTestRunnerManual } from "../utils/medusa-test-runner"
 import { getPublishableKey, getAdminToken } from "../utils/tokens"
 
 jest.setTimeout(60000)
 
 type ExtendArray<DataType> = Array<DataType extends Array<infer T> ? T & { translations: any } : never>
 
-medusaIntegrationTestRunnerManual({
+medusaIntegrationTestRunner({
+  disableAutoTeardown: true,
   testSuite: ({ getContainer, api }) => {
     let appContainer: MedusaContainer, eventBus: IEventBusModuleService
     const storeHeaders = { headers: {} }
