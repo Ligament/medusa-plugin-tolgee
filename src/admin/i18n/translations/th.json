@@ -1,0 +1,21 @@
+{
+    "$schema": "./$schema.json",
+    "shippingOptionsList": {
+        "title": "การแปล",
+        "empty": "ยังไม่มีการแปล"
+    },
+    "productOptionsList": {
+        "title": "ตัวเลือกการแปล",
+        "empty": "ยังไม่มีการแปล"
+    },
+    "widget": {
+        "title": "การแปล",
+        "subtitle": "ในการแปล ให้กด ALT + คลิกที่ค่า",
+        "subtitleEmpty": "ยังไม่มีการแปล",
+        "notTranslated": "ยังไม่มีการแปล (กด ALT + คลิกที่นี่)",
+        "add": "เพิ่ม",
+        "syncAll": "ซิงค์ทั้งหมด",
+        "selectLanguage": "เลือกภาษา"
+    },
+    "loading": "กำลังโหลด..."
+}
